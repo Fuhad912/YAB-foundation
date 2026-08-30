@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yekeen & Afusat Bello Foundation | Education & Healthcare for Low-Income Families</title>
+<meta name="description" content="In loving memory of Mallam Yekeen Olaiya & Alhaja Afusat Bello. Empowering low-income families in Nigeria through education and healthcare.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Adire-pattern SVG defs (used across the page as background texture) -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <pattern id="adire-dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="14" cy="14" r="1.4" fill="currentColor"/>
+    </pattern>
+    <pattern id="adire-diamond" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(0)">
+      <path d="M20 2 L38 20 L20 38 L2 20 Z" fill="none" stroke="currentColor" stroke-width="1"/>
+    </pattern>
+  </defs>
+</svg>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-mark">
+      <span class="nav-mark-glyph" aria-hidden="true">◈</span>
+      <span class="nav-mark-text">Yekeen &amp; Afusat Bello Foundation</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" data-nav>About</a></li>
+      <li><a href="#what-we-do" data-nav>What We Do</a></li>
+      <li><a href="#get-involved" data-nav>Get Involved</a></li>
+      <li><a href="#contact" data-nav>Contact</a></li>
+      <li><a href="#donate" class="nav-cta" data-nav>Donate</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+
+<main>
+
+  <!-- SECTION 1: HERO -->
+  <section class="hero" id="hero">
+    <!-- Background photo layer. Swap the CSS background-image in styles.css (.hero-bg) once real photos are in. -->
+    <div class="hero-bg placeholder-bg" role="img" aria-label="Photo of Mallam Yekeen Olaiya and Alhaja Afusat Bello with children">
+      <span class="placeholder-icon">◈</span>
+      <span class="placeholder-label">Family photo — to be added as hero background</span>
+    </div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-texture" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="eyebrow reveal">In loving memory</p>
+        <h1 class="hero-headline reveal">
+          Mallam Yekeen Olaiya <span class="hero-amp">&amp;</span> Alhaja Afusat Bello
+        </h1>
+        <p class="hero-sub reveal">
+          Continuing their lifelong passion to give low-income earners in Nigeria access to quality education and healthcare.
+        </p>
+        <div class="hero-actions reveal">
+          <a href="#donate" class="btn btn-primary">Donate Now</a>
+          <a href="#get-involved" class="btn btn-ghost">Support a Child</a>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-cue" aria-hidden="true"><span></span></div>
+  </section>
+
+  <!-- SECTION 2: ABOUT -->
+  <section class="about" id="about">
+    <div class="section-inner">
+      <p class="eyebrow reveal">About Us</p>
+      <div class="about-grid">
+        <div class="about-lead reveal">
+          <h2>A life spent giving <br class="br-desktop">what little they had.</h2>
+        </div>
+        <div class="about-body reveal">
+          <p>Mallam Yekeen Olaiya and Alhaja Afusat Bello lived with deep compassion for the less privileged. Though they were low-income earners themselves, their greatest joy was seeing children in school and families with access to good health.</p>
+          <p>The Yekeen &amp; Afusat Bello Foundation was established to honor their memory and continue that work.</p>
+        </div>
+      </div>
+
+      <div class="story-block reveal">
+        <div class="story-mark" aria-hidden="true">"</div>
+        <blockquote class="story-verse">
+          Because every child deserves quality life, quality education, and quality healthcare.
+        </blockquote>
+      </div>
+
+      <div class="story-full reveal">
+        <p>Mallam Yekeen Olaiya and Alhaja Afusat Bello understood hardship. As low-income earners, they knew what it meant to struggle for school fees and hospital bills. Yet, they never stopped giving, praying, and hoping for a better life for others.</p>
+        <p>This Foundation is our promise to them: that no child will be denied education because of poverty, and no family will suffer alone in health challenges.</p>
+        <p>We work to educate children and provide healthcare support to the less privileged across Nigeria.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: WHAT WE DO -->
+  <section class="what-we-do" id="what-we-do">
+    <div class="section-inner">
+      <p class="eyebrow reveal">What We Do</p>
+      <h2 class="section-title reveal">Support that reaches where it's needed.</h2>
+
+      <div class="cards-grid">
+        <div class="card reveal">
+          <div class="card-icon" aria-hidden="true">
+            <svg class="card-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+              <path d="M6 12.5v3.5c0 1.66 2.69 3 6 3s6-1.34 6-3v-3.5"/>
+            </svg>
+          </div>
+          <h3>School Fee Support</h3>
+          <p>Paying tuition for primary &amp; secondary pupils.</p>
+          <div class="card-media">
+            <img src="School Fee Support.jpg" alt="Children smiling and celebrating school support" class="card-image" loading="lazy">
+          </div>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon" aria-hidden="true">
+            <svg class="card-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/>
+              <path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/>
+              <path d="M8 21v-5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v5"/>
+              <path d="M8 10h8"/>
+              <path d="M9 18h6"/>
+            </svg>
+          </div>
+          <h3>Back-to-School Kits</h3>
+          <p>Books, uniforms, and bags for the new term.</p>
+          <div class="card-media">
+            <img src="Back to school kit.jpg" alt="Back to school supplies and kit" class="card-image" loading="lazy">
+          </div>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon" aria-hidden="true">
+            <svg class="card-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4.5 3v5a4.5 4.5 0 0 0 9 0V3"/>
+              <path d="M3 3h3"/>
+              <path d="M12 3h3"/>
+              <path d="M9 12.5v3.5a3 3 0 0 0 3 3h1a3 3 0 0 0 3-3V15"/>
+              <circle cx="16" cy="13" r="2"/>
+            </svg>
+          </div>
+          <h3>Medical Outreaches</h3>
+          <p>Free checkups and drugs within local communities.</p>
+          <div class="card-media">
+            <img src="Our Medical Outreach program supports over 1200….jpg" alt="Community medical outreach program" class="card-image" loading="lazy">
+          </div>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon" aria-hidden="true">
+            <svg class="card-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 21h18"/>
+              <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/>
+              <path d="M9 21v-4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4"/>
+              <path d="M10 9h4"/>
+              <path d="M12 7v4"/>
+            </svg>
+          </div>
+          <h3>Health Bill Assistance</h3>
+          <p>Support for emergency healthcare costs.</p>
+          <div class="card-media">
+            <img src="Health assistance.jpg" alt="Hospital care and healthcare assistance" class="card-image" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: GET INVOLVED -->
+  <section class="get-involved" id="get-involved">
+    <div class="section-inner">
+      <p class="eyebrow reveal">Get Involved</p>
+      <h2 class="section-title reveal">There's a place for you in this work.</h2>
+
+      <div class="involved-grid">
+        <div class="involved-card reveal">
+          <h3>Become a Donor</h3>
+          <p>Your gift — big or small — funds school fees, medical care, and hope.</p>
+          <a href="#donate" class="link-arrow">Donate now →</a>
+        </div>
+        <div class="involved-card reveal">
+          <h3>Volunteer</h3>
+          <p>Give your time at outreaches, school visits, and community events.</p>
+          <a href="#contact-form" class="link-arrow">Sign up →</a>
+        </div>
+        <div class="involved-card reveal">
+          <h3>Partner With Us</h3>
+          <p>Organizations and businesses can partner on programs and outreach.</p>
+          <a href="#contact-form" class="link-arrow">Get in touch →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: DONATE -->
+  <section class="donate" id="donate">
+    <div class="donate-texture" aria-hidden="true"></div>
+    <div class="section-inner">
+      <p class="eyebrow eyebrow-light reveal">Donate</p>
+      <h2 class="donate-headline reveal">Honor the memory of Mallam Yekeen &amp; Alhaja Afusat.</h2>
+
+      <div class="donate-amounts reveal">
+        <div class="amount-card">
+          <p class="amount">₦5,000</p>
+          <p class="amount-desc">can pay for a child's school books.</p>
+        </div>
+        <div class="amount-card">
+          <p class="amount">₦20,000</p>
+          <p class="amount-desc">can support a family's hospital bill.</p>
+        </div>
+      </div>
+
+      <p class="donate-give reveal">Give today.</p>
+
+      <div class="bank-details reveal" id="bankDetails">
+        <div class="bank-details-header">
+          <h3>Bank Transfer Details</h3>
+        </div>
+        <div class="bank-row">
+          <span class="bank-label">Bank Name</span>
+          <div class="bank-value-wrap">
+            <span class="bank-value" id="bankName">Opay</span>
+            <button class="copy-btn" data-copy="bankName" aria-label="Copy bank name">Copy</button>
+          </div>
+        </div>
+        <div class="bank-row">
+          <span class="bank-label">Account Number</span>
+          <div class="bank-value-wrap">
+            <span class="bank-value" id="acctNumber">8032004199</span>
+            <button class="copy-btn" data-copy="acctNumber" aria-label="Copy account number">Copy</button>
+          </div>
+        </div>
+        <div class="bank-row">
+          <span class="bank-label">Account Name</span>
+          <div class="bank-value-wrap">
+            <span class="bank-value" id="acctName">Muideen Bello</span>
+            <button class="copy-btn" data-copy="acctName" aria-label="Copy account name">Copy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: CONTACT -->
+  <section class="contact" id="contact">
+    <div class="section-inner">
+      <p class="eyebrow reveal">Contact</p>
+      <h2 class="section-title reveal">Reach us, or reach out to help.</h2>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="contact-item">
+            <span class="contact-label">Address</span>
+            <span class="contact-value">Osogbo, Osun State, Nigeria</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">WhatsApp</span>
+            <a class="contact-value contact-link" href="https://wa.me/2348032004199" target="_blank" rel="noopener">0803 200 4199</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Email</span>
+            <a class="contact-value contact-link" href="mailto:info@yafoundation.org">info@yafoundation.org</a>
+          </div>
+        </div>
+
+        <form class="contact-form reveal" id="contactForm" action="https://formspree.io/f/mrpgbrno" method="POST">
+          <h3 id="contact-form">Volunteer or Partner With Us</h3>
+          <div class="form-row">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="name" required autocomplete="name">
+          </div>
+          <div class="form-row">
+            <label for="formEmail">Email</label>
+            <input type="email" id="formEmail" name="email" required autocomplete="email">
+          </div>
+          <div class="form-row">
+            <label for="interest">I'm interested in</label>
+            <select id="interest" name="interest" required>
+              <option value="">Select one</option>
+              <option value="Volunteering">Volunteering</option>
+              <option value="Partnering with the Foundation">Partnering with the Foundation</option>
+              <option value="Becoming a regular donor">Becoming a regular donor</option>
+              <option value="Something else">Something else</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit">
+            <span class="btn-text">Send Message</span>
+          </button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="section-inner footer-inner">
+    <div class="footer-mark">◈ Yekeen &amp; Afusat Bello Foundation</div>
+    <p class="footer-line">© 2026 Yekeen &amp; Afusat Bello Foundation. In their memory, we serve.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
