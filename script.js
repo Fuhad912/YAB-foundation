@@ -83,7 +83,7 @@ const revealObserver = new IntersectionObserver((entries) => {
       revealObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+}, { threshold: 0.08, rootMargin: '0px 0px 80px 0px' });
 
 revealEls.forEach(el => revealObserver.observe(el));
 

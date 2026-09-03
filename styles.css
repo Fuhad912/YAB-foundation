@@ -364,7 +364,7 @@ input, select, textarea { font-family: inherit; font-size: 1rem; }
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-image: url("Grandpa  picture.png");
+  background-image: url("grandpa-hero.jpg");
   background-size: cover;
   background-position: 75% 20%;
   background-repeat: no-repeat;
@@ -588,6 +588,8 @@ input, select, textarea { font-family: inherit; font-size: 1rem; }
   object-fit: cover;
   border-radius: var(--radius);
   display: block;
+  background-color: var(--sand);
+  content-visibility: auto;
   transition: transform 0.4s var(--ease);
 }
 .card:hover .card-image {
