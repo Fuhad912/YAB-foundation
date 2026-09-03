@@ -1,10 +1,10 @@
 // ============================
-// NAV: scroll state + mobile toggle
+// NAV: iOS Glassmorphic Pill (Scroll State, Active Indicator, Smooth Scroll)
 // ============================
 const nav = document.getElementById('nav');
-const navToggle = document.getElementById('navToggle');
-const navLinks = document.getElementById('navLinks');
-const navBackdrop = document.getElementById('navBackdrop');
+const navLinksContainer = document.getElementById('navLinks');
+const navLinks = document.querySelectorAll('.nav-links a[data-nav]');
+const sections = document.querySelectorAll('main > section[id]');
 
 function updateNavScrollState() {
   if (window.scrollY > 40) {
@@ -16,51 +16,60 @@ function updateNavScrollState() {
 updateNavScrollState();
 window.addEventListener('scroll', updateNavScrollState, { passive: true });
 
-function openMobileNav() {
-  navLinks.classList.add('open');
-  navToggle.classList.add('is-open');
-  navBackdrop.classList.add('open');
-  navToggle.setAttribute('aria-expanded', 'true');
-  document.body.classList.add('nav-open');
+// ScrollSpy: highlight active section in iOS pill bar
+function updateActiveNavLink() {
+  const scrollPos = window.scrollY + 120;
+  let currentId = '';
+
+  sections.forEach(section => {
+    const top = section.offsetTop;
+    const height = section.offsetHeight;
+    if (scrollPos >= top && scrollPos < top + height) {
+      currentId = section.getAttribute('id');
+    }
+  });
+
+  // If scrolled to bottom of page, highlight the last section
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 50 && sections.length > 0) {
+    currentId = sections[sections.length - 1].getAttribute('id');
+  }
+
+  navLinks.forEach(link => {
+    const href = link.getAttribute('href').replace('#', '');
+    if (href === currentId) {
+      if (!link.classList.contains('is-active')) {
+        link.classList.add('is-active');
+        // On small screens, keep the active pill visible in the horizontal strip
+        if (navLinksContainer && navLinksContainer.scrollWidth > navLinksContainer.clientWidth) {
+          link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+      }
+    } else {
+      link.classList.remove('is-active');
+    }
+  });
 }
+window.addEventListener('scroll', updateActiveNavLink, { passive: true });
+updateActiveNavLink();
 
-function closeMobileNav() {
-  navLinks.classList.remove('open');
-  navToggle.classList.remove('is-open');
-  navBackdrop.classList.remove('open');
-  navToggle.setAttribute('aria-expanded', 'false');
-  document.body.classList.remove('nav-open');
-}
+// Smooth scrolling with offset for iOS floating pill
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const targetId = this.getAttribute('href');
+    if (targetId === '#' || targetId === '') return;
+    const targetElement = document.querySelector(targetId);
+    if (!targetElement) return;
 
-navToggle.addEventListener('click', () => {
-  const isOpen = navLinks.classList.contains('open');
-  if (isOpen) {
-    closeMobileNav();
-  } else {
-    openMobileNav();
-  }
-});
+    e.preventDefault();
+    const navOffset = 92;
+    const elementPosition = targetElement.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - navOffset;
 
-// Close on backdrop tap (tapping outside the menu)
-navBackdrop.addEventListener('click', closeMobileNav);
-
-// Close mobile menu after tapping a link
-document.querySelectorAll('[data-nav]').forEach(link => {
-  link.addEventListener('click', closeMobileNav);
-});
-
-// Close on Escape key
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && navLinks.classList.contains('open')) {
-    closeMobileNav();
-  }
-});
-
-// Close if the viewport is resized back to desktop while menu is open
-window.addEventListener('resize', () => {
-  if (window.innerWidth > 860 && navLinks.classList.contains('open')) {
-    closeMobileNav();
-  }
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+  });
 });
 
 // ============================
@@ -163,3 +172,42 @@ contactForm.addEventListener('submit', async (e) => {
     btnText.textContent = originalBtnText;
   }
 });
+
+// ============================
+// BANK CARD: "I Have Sent The Money" 3-Second Loader & Appreciation Flow
+// ============================
+const sentMoneyBtn = document.getElementById('sentMoneyBtn');
+const bankContent = document.getElementById('bankContent');
+const bankLoader = document.getElementById('bankLoader');
+const bankAppreciation = document.getElementById('bankAppreciation');
+const bankActionWrap = document.getElementById('bankActionWrap');
+const resetBankCardBtn = document.getElementById('resetBankCardBtn');
+
+if (sentMoneyBtn) {
+  sentMoneyBtn.addEventListener('click', () => {
+    // Hide details content and the action button
+    if (bankContent) bankContent.style.display = 'none';
+    if (bankActionWrap) bankActionWrap.style.display = 'none';
+    
+    // Turn card into the loader state
+    if (bankLoader) bankLoader.style.display = 'flex';
+
+    // Wait exactly 3 seconds (3000ms), then reveal appreciation message
+    setTimeout(() => {
+      if (bankLoader) bankLoader.style.display = 'none';
+      if (bankAppreciation) {
+        bankAppreciation.style.display = 'flex';
+      }
+    }, 3000);
+  });
+}
+
+// Option to return back to transfer details if needed
+if (resetBankCardBtn) {
+  resetBankCardBtn.addEventListener('click', () => {
+    if (bankAppreciation) bankAppreciation.style.display = 'none';
+    if (bankLoader) bankLoader.style.display = 'none';
+    if (bankContent) bankContent.style.display = 'block';
+    if (bankActionWrap) bankActionWrap.style.display = 'block';
+  });
+}

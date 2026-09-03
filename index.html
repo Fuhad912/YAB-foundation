@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yekeen & Afusat Bello Foundation | Education & Healthcare for Low-Income Families</title>
 <meta name="description" content="In loving memory of Mallam Yekeen Olaiya & Alhaja Afusat Bello. Empowering low-income families in Nigeria through education and healthcare.">
+<link rel="icon" type="image/png" href="Logo2.png">
+<link rel="apple-touch-icon" href="Logo2.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -24,36 +26,27 @@
   </defs>
 </svg>
 
-<!-- NAV -->
-<nav class="nav" id="nav">
+<!-- NAV: iOS Glassmorphic Pill -->
+<nav class="nav" id="nav" aria-label="Main Navigation">
   <div class="nav-inner">
-    <a href="#hero" class="nav-mark">
-      <span class="nav-mark-glyph" aria-hidden="true">◈</span>
-      <span class="nav-mark-text">Yekeen &amp; Afusat Bello Foundation</span>
+    <a href="#hero" class="nav-mark" data-nav aria-label="Yekeen & Afusat Bello Foundation Home">
+      <img src="Logo.png" alt="Yekeen &amp; Afusat Bello Foundation Logo" class="nav-logo">
     </a>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
-      <span></span><span></span><span></span>
-    </button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about" data-nav>About</a></li>
       <li><a href="#what-we-do" data-nav>What We Do</a></li>
-      <li><a href="#get-involved" data-nav>Get Involved</a></li>
-      <li><a href="#contact" data-nav>Contact</a></li>
       <li><a href="#donate" class="nav-cta" data-nav>Donate</a></li>
+      <li><a href="#get-involved" data-nav>Get Involved</a></li>
     </ul>
   </div>
 </nav>
-<div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
 
 <main>
 
   <!-- SECTION 1: HERO -->
   <section class="hero" id="hero">
-    <!-- Background photo layer. Swap the CSS background-image in styles.css (.hero-bg) once real photos are in. -->
-    <div class="hero-bg placeholder-bg" role="img" aria-label="Photo of Mallam Yekeen Olaiya and Alhaja Afusat Bello with children">
-      <span class="placeholder-icon">◈</span>
-      <span class="placeholder-label">Family photo — to be added as hero background</span>
-    </div>
+    <!-- Background photo layer -->
+    <div class="hero-bg" role="img" aria-label="Portrait of Mallam Yekeen Olaiya Bello"></div>
     <div class="hero-overlay" aria-hidden="true"></div>
     <div class="hero-texture" aria-hidden="true"></div>
     <div class="hero-inner">
@@ -221,30 +214,66 @@
 
       <p class="donate-give reveal">Give today.</p>
 
-      <div class="bank-details reveal" id="bankDetails">
-        <div class="bank-details-header">
-          <h3>Bank Transfer Details</h3>
-        </div>
-        <div class="bank-row">
-          <span class="bank-label">Bank Name</span>
-          <div class="bank-value-wrap">
-            <span class="bank-value" id="bankName">Opay</span>
-            <button class="copy-btn" data-copy="bankName" aria-label="Copy bank name">Copy</button>
+      <div class="bank-card-container reveal">
+        <div class="bank-details" id="bankDetails">
+          <!-- Normal Bank Details Content -->
+          <div class="bank-content" id="bankContent">
+            <div class="bank-details-header">
+              <h3>Bank Transfer Details</h3>
+            </div>
+            <div class="bank-row">
+              <span class="bank-label">Bank Name</span>
+              <div class="bank-value-wrap">
+                <span class="bank-value" id="bankName">Opay</span>
+                <button class="copy-btn" data-copy="bankName" aria-label="Copy bank name">Copy</button>
+              </div>
+            </div>
+            <div class="bank-row">
+              <span class="bank-label">Account Number</span>
+              <div class="bank-value-wrap">
+                <span class="bank-value" id="acctNumber">8032004199</span>
+                <button class="copy-btn" data-copy="acctNumber" aria-label="Copy account number">Copy</button>
+              </div>
+            </div>
+            <div class="bank-row">
+              <span class="bank-label">Account Name</span>
+              <div class="bank-value-wrap">
+                <span class="bank-value" id="acctName">Muideen Bello</span>
+                <button class="copy-btn" data-copy="acctName" aria-label="Copy account name">Copy</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Loading View (active for 3 seconds after clicking) -->
+          <div class="bank-loader" id="bankLoader" style="display: none;" aria-live="polite" aria-busy="true">
+            <div class="spinner-ring"></div>
+            <p class="loader-title">Confirming transfer...</p>
+            <p class="loader-sub">Verifying your support in memory of Mallam Yekeen &amp; Alhaja Afusat</p>
+          </div>
+
+          <!-- Appreciation View -->
+          <div class="bank-appreciation" id="bankAppreciation" style="display: none;" aria-live="polite">
+            <div class="appreciation-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+            </div>
+            <h3 class="appreciation-title">Thank You for Your Generosity!</h3>
+            <p class="appreciation-verse">"The best of people are those who bring most benefit to the rest of mankind."</p>
+            <p class="appreciation-text">Your kind contribution directly empowers vulnerable children with school tuition and provides essential healthcare to low-income families across Nigeria.</p>
+            <div class="appreciation-actions">
+              <a href="https://wa.me/2348032004199?text=Hello%20Bello%20Foundation,%20I%20have%20just%20made%20a%20donation%20via%20bank%20transfer." target="_blank" rel="noopener" class="btn btn-primary btn-sm">Notify on WhatsApp</a>
+              <button type="button" class="btn btn-ghost btn-sm" id="resetBankCardBtn">View Transfer Details</button>
+            </div>
           </div>
         </div>
-        <div class="bank-row">
-          <span class="bank-label">Account Number</span>
-          <div class="bank-value-wrap">
-            <span class="bank-value" id="acctNumber">8032004199</span>
-            <button class="copy-btn" data-copy="acctNumber" aria-label="Copy account number">Copy</button>
-          </div>
-        </div>
-        <div class="bank-row">
-          <span class="bank-label">Account Name</span>
-          <div class="bank-value-wrap">
-            <span class="bank-value" id="acctName">Muideen Bello</span>
-            <button class="copy-btn" data-copy="acctName" aria-label="Copy account name">Copy</button>
-          </div>
+
+        <!-- Button Below the Bank Transfer Card -->
+        <div class="bank-action-wrap" id="bankActionWrap">
+          <button type="button" class="btn btn-primary btn-sent-money" id="sentMoneyBtn">
+            <span>I Have Sent The Money</span>
+            <span aria-hidden="true">✓</span>
+          </button>
         </div>
       </div>
     </div>
